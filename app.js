@@ -21,7 +21,7 @@ app.get("/ruta2", (req, res) => {
 app.get("/ruta3/:nombre/:apellido", (req, res) => {
     let nameUsuario= req.params.nombre
     let apellido= req.params.apellido|
-    res.json({"usuario": nameUsuario, "apellido":apellido});
+    res.json({"usuario": nameUsuario, "apellido":apellido})
 })
 
 app.get("/ruta4",(req, res) => {
@@ -34,6 +34,27 @@ app.get("/ruta4",(req, res) => {
         <h3>Numero: ${numero}</h3>
         `)
 })
+
+app.get("/ruta5/saludo/:nombre", (req, res) => {
+    let nombre = req.params.nombre || nn
+    let saludo= req.params.saludo || "Bienvenida al SENA"
+    res.send(`<h1>Hola ${nombre}, ${saludo}</h1>`)
+})
+
+app.get("/ruta6/producto/:nombre", (req, res)=>{
+    const nombre  = req.params.nombre || "NADA"
+    
+    const productos={
+        id:1, 
+        nombre_producto: nombre,
+        stock: 23,
+        precio_uni: 2500,
+        categoria: "Vestuario"
+    };
+
+    res.json(productos);
+});
+
 
 app.listen(port, () => {
 console.log( `Servidor: http://localhost:${port}`);
