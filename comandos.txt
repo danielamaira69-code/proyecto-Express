@@ -11,3 +11,17 @@ crear rama y pasarse a ellagit checkout -b nombre_rama
 
 cambiar de rama es git checkout nombre_rama
 
+ver configuracion de git: git config --global --list
+git config --list 
+
+borrar configuraciones: 
+1. git config --global --usent user.name
+2. git config --global --usent user.email
+
+
+eliminar vinculo de un repositorio que no es mio: git config --usent remote.origin.url
+
+vincular mi repositorio: git config remote.origin.url https://.....
+
+
+
