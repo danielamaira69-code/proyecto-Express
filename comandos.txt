@@ -1,0 +1,13 @@
+INICIAR SERVIDOR, CORRER APLICACIO 
+node app.js
+
+PARA INSTALAR 
+npm install nombre_dependencia 
+npm  install 
+
+GIT:
+Crear rama: git branch nombre_rama 
+crear rama y pasarse a ellagit checkout -b nombre_rama 
+
+cambiar de rama es git checkout nombre_rama
+
