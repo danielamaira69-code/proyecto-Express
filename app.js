@@ -7,14 +7,25 @@ const port = process.env.PUERTO || 3000;
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
+//leer archivo 
+const sistemaArchivo = require ("fs")
+const ruta = require ("path")
+const rutaArchivo =ruta.join (__dirname, "datos.json")
+
 app.get("/", (req, res) => { 
-    res.send("Aprendicez ficha 3407186"); 
+    res.send("Api resta aprendices"); 
 });
 
 //EMPOINT PARA LISTAR APRENDICES 
 app.get ("/api/aprendices", (req, res) => {
-    res.status (200).json({
-        "mensaje": "Lista de aprendices"
+
+    //leer archivo json 
+    sistemaArchivo.readFile(rutaArchivo, "utf-8", (error, datos) =>{
+        if (error){
+            return res.status(500).json({Error: "Nose puede leer archivo o BD"}) 
+        }
+        const listaAprendices =JSON.parse (datos)
+        res.status (200).json({"mensaje": listaAprendices})
     })
 })
 
@@ -27,8 +38,22 @@ app.get ("/api/aprendices/:id", (req, res) => {
 
 //EMPOINT PARA CREAR APRENDICES 
 app.post ("/api/aprendices", (req, res)=>{
-    res.status(201).json ({
-        "mensaje": "se creo aprendiz"
+    const datosAprendiz =req.body
+    //leer archivo
+    sistemaArchivo.readFile(rutaArchivo, "utf-8", (error, datos) =>{
+        if (error){
+            return res.status(500).json({Error: "Nose puede leer archivo o BD"}) 
+        }
+        const listaAprendices =JSON.parse (datos)
+        //adicionar el nuevo aprendiz a la lista
+        listaAprendices.push (datosAprendiz)
+        sistemaArchivo.writeFile(rutaArchivo, JSON.stringify(listaAprendices, null, 2),(error)=>{
+            if(error){
+                return res.status(500).json({Error: "Nose puede escribir en el archivo, o BD"})
+            }
+            res.status (200).json({"mensaje": "Aprendiz creado", "Datos Aprendiz": datosAprendiz})
+        })
+        
     })
 })
 
@@ -65,6 +90,3 @@ app.post ("/rutaFormulario", (req, res) =>{
 app.listen(port, () => { 
     console.log( `SERVIDOR: http://localhost:${port}`); 
 }); 
-
-
-

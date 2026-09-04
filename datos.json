@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "nombre": "Maira",
+    "correo": "danielamaira69@gmail.com",
+    "imagen": "/imagenes/mifoto.pg",
+    "clave": "abc123"
+  },
+  {
+    "id": 1,
+    "nombre": "Maira",
+    "correo": "danielamaira69@gmail.com",
+    "imagen": "/imagenes/mifoto.pg",
+    "clave": "abc123"
+  },
+  {
+    "id": 1,
+    "nombre": "Maira",
+    "correo": "danielamaira69@gmail.com",
+    "imagen": "/imagenes/mifoto.pg",
+    "clave": "abc123"
+  }
+]
