@@ -19,5 +19,12 @@
     "correo": "danielamaira69@gmail.com",
     "imagen": "/imagenes/mifoto.pg",
     "clave": "abc123"
+  },
+  {
+    "id": "3",
+    "nombre": "maira",
+    "correo": "maira@gmail.com",
+    "clave ": "1234",
+    "imagen": "/misimagenes/1788551353732.avif"
   }
 ]
