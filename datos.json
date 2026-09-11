@@ -26,5 +26,17 @@
     "correo": "maira@gmail.com",
     "clave ": "1234",
     "imagen": "/misimagenes/1788551353732.avif"
+  },
+  {
+    "nombre": "Maria",
+    "edad": 18,
+    "correo": "danielamaira@gmail.com",
+    "imagen": "sin imagen "
+  },
+  {
+    "nombre": "Maria",
+    "edad": 18,
+    "correo": "danielamaira@gmail.com",
+    "imagen": "sin imagen "
   }
 ]
