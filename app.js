@@ -1,10 +1,10 @@
 const express = require('express');  
 const app = express(); 
 require('dotenv').config();
-const port = process.env.PUERTO || 3030; 
+const port = process.env.PUERTO || 3000; 
 //importacion de middleware propios 
 const registroMiddleware = require ("./middleware/registroMiddleware")
-
+const manejadorErrores = require ("./middleware/manejadorErrores")
 
 //middleware para parsear datos del boddy
 app.use(express.json())
@@ -17,6 +17,7 @@ app.use((req, res, next)=>{
     next()
 })
 app.use(registroMiddleware)
+app.use (manejadorErrores)
 
 
 //leer archivo 
@@ -99,6 +100,11 @@ app.delete ("/api/aprendices/:id", (req, res)=>{
     res.status(200).json({
         "mensaje": "eliminar aprendices"
     })
+})
+//error provocado
+app.get ("/error", (req,res, next)=>{
+    next(new Error ("Error instencional de mi app"))
+
 })
 
 app.listen(port, () => { 
