@@ -17,7 +17,7 @@ app.use((req, res, next)=>{
     next()
 })
 app.use(registroMiddleware)
-app.use (manejadorErrores)
+
 
 
 //leer archivo 
@@ -106,6 +106,12 @@ app.get ("/error", (req,res, next)=>{
     next(new Error ("Error instencional de mi app"))
 
 })
+//ruta protegida
+app.get ("/api/rutaprotegida", (req,res, next)=>{
+    res.status(200).json({mensaje: "Esta es emi tura protegida !!"})
+})
+
+app.use (manejadorErrores)
 
 app.listen(port, () => { 
     console.log( `SERVIDOR: http://localhost:${port}`); 
