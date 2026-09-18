@@ -5,9 +5,9 @@ const port = process.env.PUERTO || 3000;
 
 const jwt = require('jsonwebtoken');
 // Importación de middleware propios 
-const registroMiddleware = require("./middleware/registroMiddleware");
-const manejadorErrores = require("./middleware/manejadorErrores");
-const autenticacion = require("./middleware/autenticacion");
+const registroMiddleware = require("./src/middleware/registroMiddleware");
+const manejadorErrores = require("./src/middleware/manejadorErrores");
+const autenticacion = require("./src/middleware/autenticacion");
 
 // Middleware para parsear datos del body
 app.use(express.json());
@@ -42,7 +42,7 @@ const cargar = multer({ storage: almacenamiento });
 
 // Rutas base
 app.get("/", (req, res) => { 
-    res.send("Api resta aprendices"); 
+    res.send("API REST Aprendices"); 
 });
 
 // ENDPOINT PARA LISTAR APRENDICES 
