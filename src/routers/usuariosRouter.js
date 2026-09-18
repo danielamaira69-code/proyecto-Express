@@ -1,0 +1,1 @@
+enrutador.get ("/usuarios", mostrarUsuario)
